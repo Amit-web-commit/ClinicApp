@@ -1,0 +1,179 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+{% block pharmacy %}
+<body>
+       
+        <div class="searchsec">
+            <form action="">
+                <input type="text" name="itemname" placeholder="Search your product..">
+                <input type="submit" value="submit">
+                <!-- <i class="fa-brands fa-searchengin"></i> -->
+                <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+            </form>
+        </div>
+
+         <!-- <div class="grid"> -->
+            <h4 style="text-align: center; margin-top: 40px; display: flex; margin-left: 40%;">Sort Product</h4>
+         <div class="sortingsec " style="text-align: center; margin-top: 40px; display: flex; justify-content: space-between; margin-left: 0%;">
+        
+             <div class="select container" style="width: 30%; display: flex; ">
+                <select name="sort" id="sort-list" onchange="location=finalurl();">
+                 <option value="" id="placeholder"  selected disabled hidden >Sort by Price:</option>
+                 <option id="priceasc" value="price">Low to High </option>
+                 <option id="pricedesc" value="-price">High to Low</option>
+                 
+                </select>
+                
+                <button class="btn btn-outline-success btn-sm mb-5 ml-2">Sort</button>
+             </div>
+             <div class="select container"  style="width: 30%; display: flex;;">
+                <select name="sort" id="sort">
+                 <option selected disabled hidden>Search by Category:</option>
+                 <option value="pricedesc">Covid Essential</option>
+                 <option value="priceasc">Ayurvedic</option>
+                 <option value="priceasc">Homeopathy</option>
+                 <option value="priceasc">Fitness</option>
+                 <option value="priceasc">surgical</option>
+                 <option value="priceasc">Sexual Wellness</option>
+                </select>           
+                <button class="btn btn-outline-info btn-sm mb-5 ml-2">Find</button>
+             </div>
+         </div>
+     </section>
+
+     <section class="products">
+        {% for i in pharmacy %}
+         <div class="product" style="display:flex; flex-direction: column;">
+          
+             <img src="{{i.productImage.url}}" alt="" srcset="" style="object-fit: cover; background-size: cover; max-width:100%; margin: auto; border-radius: 5%;">
+             <div class="productcontent" style="margin: auto;padding: auto;" >
+                <h6 style="margin-top: 19px;"><strong>{{i.name}}</strong></h6>
+             <h5 class="" style="font-family:Georgia, 'Times New Roman', Times, serif ;"><bold>Rs.{{i.price}}</bold> </h5>
+             
+            </div>
+        
+         <div class="details">
+             <div class="wishlist">
+                <i class="fa fa-heart fa-lg"></i>
+                <!-- <i class="fa-solid fa-heart"></i> -->
+             </div>
+             <form action="/carts" method="" >
+             
+             <div class="cart">
+                <input type="hidden" name="prod_id" value="{{i.id}}" id="prod_id">
+                    <button id="prod_id" class="btn atc btn-outline-success btn-sm">Add to Cart
+                        <span style="color:rgb(17, 17, 17)"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></span>
+                    </button>
+             </div>
+            </form>
+         </div>
+        </div>
+        {% endfor %}
+  
+      
+ 
+     </section>
+     <div class="page">
+        <ul class="pagination">
+            {% if pharmacy.has_previous %}
+            <li ><a href="?page={{pharmacy.previous_page_number}}" class="prev"> < prev</a> </li>
+            {% endif %}
+            <li class="pageNumber active"><a href="?page={{pharmacy.number}}">{{pharmacy.number}}</a></li>
+            {% if pharmacy.has_next %}
+            <li ><a href="?page={{pharmacy.next_page_number}}" class="next">Next></a> </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+    </div>
+{% block js %}
+<script>
+    console.log("working");
+    if(localStorage.getItem('cart') == null){
+       var cart = {}
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+    $(document).on('click', '.atc', function(){
+        var item_id = this.id.toString();
+        console.log("Id is",item_id)
+        if (cart[item_id] != undefined){
+            cart[item_id] = cart[item_id]+1
+        }
+        else{
+            cart[item_id] = 1;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log(cart);
+        document.getElementById("cart").innerHTML = Object.keys(cart).length
+        console.log(Object.keys(cart).length)
+    });
+</script>
+<script>
+    function get(name){
+        if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+        return decodeURIComponent(name[1]);
+    
+    }
+    if (get('ordering'))
+        document.getElementById('placeholder').innerHTML="Sort: "+ document.getElementById(get('ordering')).innerHTML;
+
+
+    function finalurl(){
+        var url = new URL(window.location.href);
+        // console.log(url)
+        var search_params = url.searchParams;
+        // console.log(search_params)
+        search_params.set('ordering', document.getElementById("sort-list").value);
+        url.search = search_params.toString();
+        var new_url = url.toString();
+        // console.log(new_url);
+        return new_url
+
+    }
+</script>
+{% endblock %}
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript">
+  console.log("Helo");
+     if(localStorage.getItem('cart') == null){
+         var cart = {};
+     }
+     else{
+         cart = JSON.parse(localStorage.getItem('cart'));
+     }
+     $(document).on('click', '.atc', function(){
+         console.log('Button Clicked');
+
+         var item_id  = this.id.toString();
+         console.log(item_id);
+     })
+ </script> -->
+<!-- <script>
+    AOS.init({
+        duration:1000,
+        delay:400
+    })
+</script> -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+        $('.next').click(function(){
+            $('.pagination').find('.pageNumber.active').next().addClass('active');
+            $('.pagination').find('.pageNumber.active').prev().removeClass('active');
+        })
+        $('.prev').click(function(){
+            $('.pagination').find('.pageNumber.active').prev().addClass('active');
+            $('.pagination').find('.pageNumber.active').next().removeClass('active');
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,165 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+
+{% block blog %}
+<body>
+
+       
+        <section class="blog">
+            <div class="blogContainer">
+                <div class="blogrow">
+                    <div class="bloghead">
+                        <h1>Our <span>Blogs</span></h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, in quaerat vero sunt pariatur necessitatibus?</p>
+                    </div>
+                    <section class="blogarticles">
+                        {% for i in post %}
+                        <div class="blogarticle"> 
+                            <div class="leftpost">
+                                <img src="{{ i.thumbnail.url }}" alt="">
+                            </div>
+                            <div class="rightpost" >
+                                {% for obj in i.categories.all %}
+                                <p class="blogcategory" style="text-decoration: underline; color: coral;">{{obj}}</p>
+                                {% endfor%}
+                                <div class="blogdetail">
+                                    <h3>{{i.title}}</h3>
+                                    <p>
+                                        {{i.detail}}
+                                    </p>
+                                </div>
+                                <div class="blogauthor">
+                                    <a href="">
+                                    <div class="avatar">  <img src="{{i.author.profile_picture.url}}" alt=""></div>
+                                    <div class="authorname"><span>{{i.author}}</span></div>
+                                    </a>
+                                    <div class="blogclock">
+                                        <i class="fa fa-clock clock"><span> {{i.time_stamp}}</span></i>
+                                    </div>
+                                    <div class="blogcommentcount">
+                                        <i class="fa fa-comment comment"><span>
+                                            {{i.comment_count}}
+                                        </span></i>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="blogarticle"> 
+                            <div class="leftpost">
+                                <img src="{% static 'images/blog2.jpg' %}" alt="">
+                            </div>
+                            <div class="rightpost">
+                                <p class="blogcategory" style="text-decoration: underline; color: coral;">Business Section</p>
+                                <div class="blogdetail">
+                                    <h3>Blog 2</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptates.
+                                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa repudiandae vero laudantium. 
+                                    </p>
+                                </div>
+                                <div class="blogauthor">
+                                    <a href="">
+                                    <div class="avatar">  <img src="{% static 'images/pat1.png' %}" alt=""></div>
+                                    <div class="authorname"><span>John doe</span></div>
+                                    </a>
+                                    <div class="blogclock">
+                                        <i class="fa fa-clock clock"><span> 2 months</span></i>
+                                    </div>
+                                    <div class="blogcommentcount">
+                                        <i class="fa fa-comment comment"><span>
+                                            12 comments
+                                        </span></i>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div> -->
+                    </section>
+                    <div class="latest" style="margin-top: 120px;">
+                    <h4 class="container" >Our Latest Blogs</h4>
+                    <div class="blogcontent">
+                        {% for i in latest %}
+                        <div class="blogcard">
+                        <div class="blogimage" >
+                            <img src="{{ i.thumbnail.url }}" class="img-responsive image-resize" alt="">    
+                        </div>
+                        <div class="blogdesc">
+                            <h6>{{i.title}}</h6>
+                            <p>{{i.detail|slice:"0:100"}}</p>
+                        </div>
+                            <div class="blogdate" >
+                                <div class="date">{{i.time_stamp}} </div>
+                                {% for obj in i.categories.all %}
+                                <div class="blogdes">{{obj}}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="newsletter" style="text-align: center;">
+            <div class="container side">
+                <div class="newsside">
+                    <h4>Subscribe to the newsletter</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur . Ducimus fuga reprehenderit assumenda unde necessitatibus sit fugiat culpa a repellat ipsam!</p>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                    <div class="alongsearch" style="display: flex;">
+                        <input type="email" name="email" placeholder="Enter Your Email Address:">
+                        <button type="submit" class="submit" style="margin-left: 5px;">Signup</button>
+                    </div>
+                </form>
+                </div>
+               
+                <div class="nonewsside">
+                  
+                </div>
+
+            </div>
+
+        </section>
+      
+{% endblock %}
+      
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var slide = document.getElementById('slide');
+        var left = document.getElementById('right');
+        var right = document.getElementById('left');
+        let x = 0
+        left.onclick = function(){
+            if (x>= "-300"){
+                x = x-300;
+            slide.style.top = x + "px";
+            }
+            
+        }
+        right.onclick = function(){
+            if (x <0){
+                x = x+300;
+            slide.style.top = x + "px";
+            }
+            
+        }
+    </script>
+    <script>
+        AOS.init({
+            duration:1000,
+            delay:400
+        })
+    </script>
+</body>
+</html>

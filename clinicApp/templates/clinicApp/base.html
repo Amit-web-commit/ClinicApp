@@ -1,0 +1,193 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://kit.fontawesome.com/f2be6d220c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>WebApp</title>
+</head>
+<body>
+   
+        <a class="logo" title="CareforYou Clinic" href="{% url 'clinicApp:home' %}" > <span>Care for you</span></a>   
+       
+        <!-- <nav>
+            <ul>
+                <li>
+                    <a title="home" href="">Home</a>
+                    
+                </li>
+              
+                <li>
+                    <a title="services" aria-haspopup="true" href="">Services</a>
+                    <ul>
+                        <li>
+                            <a title="emergency" href="">Medical Staff</a>
+                           
+                        </li>
+                      
+                        
+                        <li>
+                            <a title="transplant" href="">Pharmacy</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+
+                <li style="margin: -1.3px;">
+                <a href="">
+                    <div class="fas fa-shopping-cart fa-lg" id="shopping"><h5 class="cart-item-count"><strong></strong></h5></div></a></li>
+                <li>
+                    <a href="">
+                        <div class="fas fa-user fa-lg" id="user"></div>
+                    </a>
+                    
+                    
+                </li>
+            </ul>
+        </nav> -->
+        <nav>
+            <ul>
+                <li>
+                    <a title="home" href="{% url 'clinicApp:home' %}">Home</a>
+                    
+                </li>
+              
+                <li>
+                    <a title="services" aria-haspopup="true" href="{% url 'clinicApp:home' %}" style="z-index: 11; margin-bottom: 1px;">Services</a>
+                    <ul>
+                        <li style="margin-top: 1px;">
+                            <a title="emergency" href="{% url 'clinicApp:doctor' %}" style="z-index: 11;  margin-top:-5px;">Medical Staff</a>
+                           
+                        </li>
+                      
+                        
+                        <li>
+                            <a title="transplant" href="{% url 'clinicApp:pharmacy' %}" style="z-index: 11;">Pharmacy</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+                <li>
+                    <a title="blog" href="{% url 'clinicApp:blog' %}">Blog</a>
+                    
+                </li>
+              
+
+                <li style="margin: -1.3px;">
+                <a href="{% url 'clinicApp:show_cart' %}">
+                    <div class="fas fa-shopping-cart fa-lg" id="cart"><h5 class=""></h5></div></a></li>
+                <li class="">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'clinicApp:dashboard'  %}">
+                        <div class="fas fa-user fa-lg" id="user"><span> {{request.user}}</span> </div>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'clinicApp:dashboard'  %}">
+                        <div class="fas fa-user fa-lg" id="user"><span></span> </div>
+                    </a>
+                    {% endif %}
+                    
+                </li>
+                <div class="rightblock" style="display:flex; justify-content:flex-end;">
+                    {% if user.is_authenticated %}
+                    <li class="">
+                        <a title="transplant" href="{% url 'clinicApp:logout' %}">Logout</a>
+                        
+                    </li>
+                    {% else %}
+                    <li class="">
+                        <a title="transplant" href="{% url 'clinicApp:signup' %}">Sign UP</a>
+                        
+                        
+                    </li>
+                    <li class="">
+                        <a title="transplant" href="{% url 'clinicApp:login' %}">Login</a> 
+                    </li>
+                    {% endif %}
+                </div>
+              
+               
+            </ul>
+            
+        </nav>
+        {% block home %}
+        {% endblock %}
+        {% block doctors %}
+        {% endblock %}
+        {% block doctorDetail %}
+        {% endblock %}
+        {% block pharmacy %}
+        {% endblock %}
+        {% block blog %}
+        {% endblock %}
+        {% block cart %}
+        {% endblock %}
+        {% block checkout %}
+        {% endblock %}
+        {% block empty %}
+        {% endblock %}
+
+
+        <footer>
+            <div class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter-square"></i>
+            </div>
+            <div class="content">
+                <a href="" title="Privacy Policy">Privacy Policy</a>
+                <a href="" title="Term of Service">Terms of Service</a>
+           
+            &copy; CareforYou
+        </div>
+        </footer>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% block js %}
+    {% endblock %}
+
+    {% block script %}
+  
+    {% endblock %}
+    <!-- <script>
+        var slide = document.getElementById('slide');
+        var left = document.getElementById('right');
+        var right = document.getElementById('left');
+        let x = 0
+        left.onclick = function(){
+            if (x>= "-300"){
+                x = x-300;
+            slide.style.top = x + "px";
+            }
+            
+        }
+        right.onclick = function(){
+            if (x <0){
+                x = x+300;
+            slide.style.top = x + "px";
+            }
+            
+        }
+    </script> -->
+    <script>
+        AOS.init({
+            duration:1000,
+            delay:400
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+
+{% block empty %}
+<section style="margin-top: 5%; text-align: center;">
+    <img src="{% static 'images/nocart.png' %}" alt="" style="border: 1px solid black; border-radius: 25%;">
+<h5 class="mt-3">Sorry, <span  style="color: rgba(101, 37, 37, 0.533); font-size: larger;"> {{request.user}}</span> your cart is Empty.</h5>
+</section>
+{% endblock %}
+      
+

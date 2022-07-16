@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="./css/style.css">
+    <link rel="stylesheet" media="all" href="./css/print.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://kit.fontawesome.com/f2be6d220c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>WebApp</title>
+</head>
+<body>
+        <a class="logo" title="CareforYou Clinic" href="" > <span>Care for you</span></a>   
+
+        <nav>
+            <ul>
+                <li>
+                    <a title="home" href="">Home</a>
+                    
+                </li>
+                <li>
+                    <a title="services" aria-haspopup="true" href="">Services</a>
+                    <ul>
+                        <li>
+                            <a title="emergency" href="">Emergency Care</a>
+                           
+                        </li>
+                        <!-- <li>
+                            <a title="24/7service" aria-haspopup="true" href="">24Hrs Services</a>
+                            <ul>
+                                <li>
+                                    <a title="woundcare" href="">Trauma Care</a>
+                                </li>
+                                <li>
+                                    <a title="rehabilation" href="">Rehabilitation</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li>
+                            <a title="transplant" href="">Transplant Service</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+                <li>
+                    <a title="blog" href="">Blog</a>
+                </li>
+                <li>
+                    <a title="contact" href="">Contact</a>
+                </li>
+            </ul>
+        </nav>
+      <section class="contact"> 
+        <div class="contact-main">
+            <div class="contactmap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114311.47785844376!2d87.20176681417409!3d26.44819537857697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef744704331cc5%3A0x6d9a85e45c54b3fc!2sBiratnagar%2056613!5e0!3m2!1sen!2snp!4v1645155569844!5m2!1sen!2snp" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="contactForm">
+                <h2>We love to hear from you!!</h2>
+                <form action="" method="post">
+                    <input type="text"  name="name" class="contactTxt" placeholder="Enter your name">
+                    <input type="email"  name="email"class="contactTxt" placeholder="Enter your email">
+                    <input type="text"  name="phone" class="contactTxt" placeholder="Enter your phone">
+                    <textarea name="message" class="contactText" placeholder="Write your messages" id="" ></textarea>
+                   <div class="btnContainer">
+                    <input type="submit" name="submit" class="btn">
+                   </div>
+
+                </form>
+            </div>
+            
+        </div>
+        </section>
+        <footer>
+            <div class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter-square"></i>
+            </div>
+            <div class="content">
+                <a href="" title="Privacy Policy">Privacy Policy</a>
+                <a href="" title="Term of Service">Terms of Service</a>
+           
+            &copy; CareforYou
+        </div>
+        </footer>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var slide = document.getElementById('slide');
+        var left = document.getElementById('right');
+        var right = document.getElementById('left');
+        let x = 0
+        left.onclick = function(){
+            if (x>= "-300"){
+                x = x-300;
+            slide.style.top = x + "px";
+            }
+            
+        }
+        right.onclick = function(){
+            if (x <0){
+                x = x+300;
+            slide.style.top = x + "px";
+            }
+            
+        }
+    </script>
+    <script>
+        AOS.init({
+            duration:1000,
+            delay:400
+        })
+    </script>
+</body>
+</html>

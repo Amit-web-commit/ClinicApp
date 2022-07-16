@@ -1,0 +1,143 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+{% block doctors %}
+<body>
+        
+        <div class="searchsec" style="display: block;" >
+            <h4 style="margin-left:260px; color: rgb(20, 21, 21); font-size:30px; font-family: 'Times New Roman', Times, serif;">About Us</h4>
+            <hr style="background-color: rgb(25, 150, 25); height: 2px; width: 30%;">
+            <a href="" style="margin-left:200px;">Message from Executive Director</a>
+        
+            <!-- <a href="" style="margin-left:200px; margin-top: 290px;">Message from Executive Director</a> -->
+              
+        </div>
+    
+        <section class="dotortopic">
+            <div class="doctortop">
+                <h4>Meet Our Doctors</h4>
+                <div class="sortingsec " style="text-align: center; margin-top: 0px; display: flex; margin-left: 0%;line-height: 2em; ">
+
+                    <div class="select"  style="margin-left: 37%; display: flex; justify-content: space-between; width: 30%;">
+                       <select name="sort" id="sort">
+                        <option selected disabled hidden >Search by Department:</option>
+                        <option value="pricedesc">Dental Surgery</option>
+                        <option value="priceasc">Anesthesiology</option>
+                        <option value="priceasc">Neurology</option>
+                        <option value="priceasc">Urology</option>
+                        <option value="priceasc">Cardiology</option>
+                        <option value="priceasc">Nutrition and Diabetics</option>
+                        <option value="priceasc">ENT and Head Neck Surgery</option>
+                        <option value="priceasc">Wellness and Family Medicine</option>
+                       </select>           
+                       <button class="btn btn-outline-info btn-sm mb-1 ml-3">Find</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <div class="row">
+            {% for i in doctor %}
+            <div class="col-md-3 profile text-center">
+                <div class="docimage">
+                    <img src="{{i.doctorImage.url}}" alt="" srcset="">
+                
+                <ul>
+                    <a href=""><li> <i class="fa fa-facebook fa-lg"></i></li> </a>
+                  
+                    <a href=""><li> <i class="fa fa-twitter fa-lg"></i></li> </a>
+                </ul>
+            </div>
+                <h6>Dr. {{i.name}}</h6>
+                <h6>{{i.speciality}}</h6>
+              <a href="{% url 'clinicApp:doctorDetail' i.id %}"> <p> <strong>View Profile</strong></p></a> 
+            </div>
+            {% endfor %}
+            <!-- <div class="col-md-3 profile text-center">
+                <div class="docimage">
+                    <img src="{% static 'images/doctor.png' %}" alt="" srcset="">
+                
+                <ul>
+                    <a href=""><li> <i class="fa fa-facebook fa-lg"></i></li> </a>
+                    <a href=""><li> <i class="fa fa-twitter fa-lg"></i></li> </a>
+                </ul>
+            </div>
+                <h6>Dr. John Anne</h6>
+                <h6>Neurology</h6>
+              <a href=""> <p> <strong>View Profile</strong></p></a> 
+            </div> 
+            <div class="col-md-3 profile text-center">
+                <div class="docimage">
+                    <img src="{% static 'images/doctor.png' %}" alt="" srcset="">
+                
+                <ul>
+                    <a href=""><li> <i class="fa fa-facebook fa-lg"></i></li> </a>
+                    <a href=""><li> <i class="fa fa-twitter fa-lg"></i></li> </a>
+                </ul>
+            </div>
+                <h6>Dr. John Anne</h6>
+                <h6>Neurology</h6>
+              <a href=""> <p> <strong>View Profile</strong></p></a> 
+            </div>
+            <div class="col-md-3 profile text-center">
+                <div class="docimage">
+                    <img src="{% static 'images/doctor.png' %}" alt="" srcset="">
+                
+                <ul>
+                    <a href=""><li> <i class="fa fa-facebook fa-lg"></i></li> </a>
+                    <a href=""><li> <i class="fa fa-twitter fa-lg"></i></li> </a>
+                </ul>
+            </div>
+                <h6>Dr. John Anne</h6>
+                <h6>Neurology</h6>
+              <a href=""> <p> <strong>View Profile</strong></p></a> 
+            </div>
+            <div class="col-md-3 profile text-center">
+                <div class="docimage">
+                    <img src="{% static './images/nurses.png' %}" alt="" srcset="">
+                
+                <ul>
+                    <a href=""><li> <i class="fa fa-facebook fa-lg"></i></li> </a>
+                    <a href=""><li> <i class="fa fa-twitter fa-lg"></i></li> </a>
+                </ul>
+            </div>
+                <h6>Dr. John Anne</h6>
+                <h6>Neurology</h6>
+              <a href=""> <p> <strong>View Profile</strong></p></a> 
+            </div>  -->
+           
+         
+            
+           
+        </div>
+        <div class="page">
+            <ul class="pagination">
+                {% if doctor.has_previous %}
+                <li ><a href="?page={{doctor.previous_page_number}}" class="prev"> < prev</a> </li>
+                {% endif %}
+                <li class="pageNumber active"><a href="?page={{doctor.number}}">{{doctor.number}}</a></li>
+                {% if doctor.has_next %}
+                <li ><a href="?page={{doctor.next_page_number}}" class="next">Next></a> </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endblock %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.next').click(function(){
+                $('.pagination').find('.pageNumber.active').next().addClass('active');
+                $('.pagination').find('.pageNumber.active').prev().removeClass('active');
+            })
+            $('.prev').click(function(){
+                $('.pagination').find('.pageNumber.active').prev().addClass('active');
+                $('.pagination').find('.pageNumber.active').next().removeClass('active');
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@200&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+}
+body{
+    width: 100%;
+    background: white;
+    position: relative;
+    display: flex;
+}
+.menu{
+    background:#eee;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+.menu .adminlogo{
+    display: flex;
+    text-align: center;
+    padding: 20px 0 0 20px;
+}
+.menu .adminlogo img{
+   width: 120px;
+   margin-right: 20px;
+}
+.menu .sideitems{
+    margin-top: 40px;
+}
+.menu .sideitems li{
+    list-style: none;
+    padding: 15px 0;
+    /* text-align: center; */
+
+}
+.menu .sideitems li:hover{
+    background: aqua;
+    cursor: pointer;
+}
+.menu .sideitems li:nth-child(1){
+    border-left: 7px solid rgb(144, 115, 115);
+}
+.menu .sideitems li i{
+    height: 30px;
+    width: 30px;
+    margin: 0 5px 2px 20px;
+    line-height: 22px;
+    font-size: 28px;
+    text-align: center;
+    color: rgb(6, 6, 6);
+}
+ .menu .sideitems li:hover a{
+    color: oldlace;
+}
+.menu .sideitems li:hover i{
+    color:brown;
+}
+
+.menu .sideitems li a{
+    text-decoration: none;
+    color: rgb(6, 6, 6);
+    /* text-align: center; */
+    padding: 0
+    0
+    10px 0;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+.mainsection{
+    /* width: 100%; */
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: relative;
+}
+.mainsection .navigationsection{
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 3px solid black;
+    position: fixed;
+    width: calc(100% - 300px);
+    /* border-radius: 10%; */
+}
+.mainsection .navigationsection .n1{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+#btnMenu{
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 16px;
+
+}
+
+
+.mainsection .navigationsection .dashboardprofile{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+} 
+.mainsection .navigationsection .nameacc h5{
+    color: brown;
+    font-size: 20px;
+}
+.mainsection .navigationsection .dashboardprofile i{
+    margin-right: 20px;
+    font-size: 17px;
+    font-weight: 400;
+}
+.mainsection .navigationsection .dashboardprofile img{
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid rgb(187, 180, 180);
+}
+.mainsection .i-name{
+    color: rgb(13, 12, 12);
+    padding: 20px 20px 0 25px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.mainsection .values{
+    padding: 30px 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 30px;
+}
+.mainsection .values .valuebox{
+    background: rgb(235, 231, 231);
+    width: 230px;
+    padding: 15px 15px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid silver;
+    border-radius: 5%;
+    /* display: flex; */
+    justify-content: flex-start;
+    align-items: center;
+  
+}
+.mainsection .values .valuebox:nth-child(1) i{
+    background: rgb(159, 214, 103);
+}
+.mainsection .values .valuebox:nth-child(2) i{
+    background: rgb(124, 98, 173);
+}
+.mainsection .values .valuebox:nth-child(3) i{
+    background: rgb(145, 55, 45);
+}
+.mainsection .values .valuebox i{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    /* margin-left: 35%; */
+    border-radius: 50%;
+    color: aliceblue;
+    text-align: center;
+    margin-right: 20px;
+    background: rgb(11, 11, 11);
+}
+.mainsection .values .valuebox h3{
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 90px;
+}
+.mainsection .values .valuebox span{
+    font-size: 16px;
+    color: rgb(63, 65, 58);
+
+}
+.ordersboard{
+    width: 95%;
+    margin: 30px 0 30px 30px;
+    border-radius: 10px;
+    background: #eef;
+    overflow: auto;
+}
+
+.ordersboard .i-name{
+    color: brown;
+    font-weight: 600;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+
+}
+.ordersboard table{
+    margin-top: 20px;
+}
+.ordersboard img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10%;
+}
+.ordersboard table thead tr td{
+    font-weight: 700;
+    background-color: #eef;
+    text-transform: uppercase;
+    text-align: start;
+    padding: 20px;
+
+}
+.ordersboard table tbody h5{
+    font-weight: 600;
+    font-size: 15px;
+}
+.ordersboard table tbody p{
+    font-weight: 400;
+    font-size: 14px;
+    color:rgb(30, 60, 60)
+}
+.ordersboard .orderProduct{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+.ordersboard table{
+    border-collapse: collapse;
+}
+.ordersboard table tr{
+    border-bottom: 1px solid #fff;
+}
+.ordersboard table tbody tr td{
+    padding: 15px;
+    text-align: center;
+}
+.ordersboard table tbody tr .action{
+    background:aquamarine;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: firebrick;
+    display: inline-block;
+    text-align: center;
+    margin-left: 25%;
+    margin-bottom: 20px;
+}
+@media (max-width:640px) {
+    .menu {
+
+        width: 270px;
+        left: -270px;
+        position: fixed;
+    }
+    .mainsection {
+        width: 100%;
+        /* width: calc(100% - 300px); */
+        margin-left: 0;
+       display: inline-block;
+    }
+    .mainsection .navigationsection {
+        width: 100%;
+    }
+    .menu .active{
+        left: 0;
+    }
+    #btnMenu{
+        display: initial;
+    }
+    .mainsection .values {
+        padding: 30px 30px 0 30px;
+        justify-content: flex-start;
+    }
+    .mainsection .values .valuebox {
+        margin: 10px 20px 10px 0;
+        padding: 15px 15px;
+        
+    } 
+    .ordersboard {
+        width: 92%;
+        padding: 0;
+        overflow-x: auto;
+    }
+}
+@media (max-width:574px) {
+    .mainsection .values .valuebox {
+      width: 100%;
+      margin: 10px 0 10px 0;
+    }
+    
+}

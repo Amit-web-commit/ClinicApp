@@ -1,0 +1,69 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+{% block doctorDetail %}
+<body>
+ 
+ <section class="docdetail" style="margin-top: 70px;">
+    <h2 style="text-align:center; color:rgb(18, 36, 10); ">Doctor Detail</h2>
+    <br>
+    <div class="row">
+   
+        <div class="col-md-4">
+            <div class="docimage container">
+            <img src="{{doctorDetail.doctorImage.url}}" alt="" srcset="" height="300px" width="70%" style=" border-radius: 50%; object-fit: cover;" >
+            </div>
+          
+           
+        </div>
+        
+        
+        <div class="col-md-4" >
+            
+            <h3>Department</h3>
+            <p>{{doctorDetail.speciality}}</p>
+            <h3>Designation</h3>
+               <p>{{doctorDetail.designation}}</p> 
+                
+              <h3> Education</h3> 
+               <p>{{doctorDetail.Education}}</p> 
+                
+              <h3><strong>Past Affiliation</strong></h3>  
+               <p><strong> Membership with health organizations/ associations</strong></p>
+                </h3>
+                <div class="linkback">
+                    <a href="{% url 'clinicApp:doctor' %}">
+                        <button class="btn btn-outline-success btn-sm">Back to Doctor Page
+                        </button>
+                        </a>
+                </div>
+        </div>
+        <div class="col-md-3">
+            <h3> <i class="fa fa-calendar"></i> <span></span> Avalilable</h3>
+            <hr color="red">
+            <a class="btn ml-3" title="Get advice from top Medical Staff" href="">Book  <span> For an Appoinment </span> </a>
+        </div>
+   
+    </div>
+ </section>
+       
+{% endblock %}
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.next').click(function(){
+                $('.pagination').find('.pageNumber.active').next().addClass('active');
+                $('.pagination').find('.pageNumber.active').prev().removeClass('active');
+            })
+            $('.prev').click(function(){
+                $('.pagination').find('.pageNumber.active').prev().addClass('active');
+                $('.pagination').find('.pageNumber.active').next().removeClass('active');
+            })
+        })
+    </script>
+</body>
+</html>

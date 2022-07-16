@@ -1,0 +1,268 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+{% block home %}
+<body>
+    
+    <div id="web" >
+        <header >
+        
+          
+            <div class="hero" data-aos="fade-left" >
+                <h1>Caring For Life, <br> <span>Caring For People</span> 
+
+                </h1>
+                <a class="btn" title="Get advice from top Medical Staff" href="">Book  <span>an Appoinment to our experts</span> </a>
+            </div>
+        </header>
+        <section class="main" data-aos="fade-right">
+            <aside >
+                <div class="content ambulance">
+                    <h3><a href="#">Ambulance service</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, quam!</p>
+                </div>
+            </aside>
+            <aside>
+                <div class="content emergency">
+                    <h3><a href="#">Location </a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, dicta. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, amet!</p>
+                </div>
+            </aside>
+            <aside>
+                <div class="content Checkup">
+                    <h3><a href="#">Free Checkup</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, corrupti.</p>
+                </div>
+            </aside>
+        </section>
+        <section class="about">
+            <div class="picture">
+                <img src="{% static 'images/building.jpg' %}" alt="">
+            </div>
+            <div class="detail">
+                <h2>Welcome To People's Care</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                Animi recusandae nam autem pariatur. Labore dicta quas repellendus temporibus in inventore?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores natus nulla totam incidunt tenetur omnis dolorum. Dolorem at quidem deserunt!
+                </p>
+                <a href=""><button class="btn">Contact</button></a>
+            </div>
+        </section>
+       
+       
+        <section class="abouts">
+          
+            <div class="videodetail">
+                <h3>Our Building</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                Animi recusandae nam autem pariatur. Labore dicta quas repellendus temporibus in inventore?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores natus nulla totam incidunt tenetur omnis dolorum. Dolorem at quidem deserunt!
+                </p>
+                
+            </div>
+          
+            <div class="videoclip">
+                <iframe width="100%" height="300"
+                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+            </div>
+        </section>
+  
+        <section class="newcontent">
+           <aside>
+               <div class="content">
+                <img src="{% static 'images/doctor.png' %}" alt="Doctor" data-aos="fade-right">
+                <h4>Dr.John Doe</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aperiam aliquam qui ducimus iste asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, obcaecati!</p>
+                <a title="Suggesstion and advice" href="">Care and Planning End to End</a>
+               </div>
+           </aside>
+           <aside>
+            <div class="content">
+                <img src="{% static 'images/doctor_P.png' %}" alt="Nurse" data-aos="fade-left">
+                <h4>Dr.MArie Steele</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aperiam aliquam qui ducimus iste asperiores.</p>
+                <a title="Suggesstion and advice" href="">We pour love and care in every patient</a>
+            </div>
+        </aside>
+        <blockquote>
+            <p class="quote">Leading the way in medical excellence</p>
+            <p class="credit"> <strong>CEO. Almin Zahher</strong> <br><em>Medical Head</em>Care For You
+            </p>
+        </blockquote>
+         
+        </section>
+         <!-- <nav>
+            <ul>
+                <li>
+                    <a title="home" href="">Home</a>
+                    
+                </li>
+              
+                <li>
+                    <a title="services" aria-haspopup="true" href="">Services</a>
+                    <ul>
+                        <li>
+                            <a title="emergency" href="">Medical Staff</a>
+                           
+                        </li>
+                      
+                        
+                        <li>
+                            <a title="transplant" href="">Pharmacy</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+
+                <li style="margin: -1.3px;">
+                <a href="">
+                    <div class="fas fa-shopping-cart fa-lg" id="shopping"><h5 class="cart-item-count"><strong></strong></h5></div></a></li>
+                <li>
+                    <a href="">
+                        <div class="fas fa-user fa-lg" id="user"><span> Amit</span></div>
+                    </a>
+                </li>
+                <div class="rightblock" style="display:flex; justify-content:flex-end;">
+                    <li class="">
+                        <a title="transplant" href="">Sign UP</a>
+                        
+                        
+                    </li>
+                    <li class="" class="width:100%">
+                        <a title="transplant" href="" >Login</a>
+                        
+                        
+                    </li>
+                </div>
+            </ul>
+        </nav>  -->
+        <section class="testimonial">
+            
+                <h2>Our Happy Patients</h2>
+                <div class="customer">
+                    <div id="slide">
+                    <div class="review">
+                        {% for i in patient %}
+                        <div class="profile">
+                            <img src="{{i.patientImage.url}}" alt="" srcset="">
+                        <div>
+                        <h3>{{i.name}}</h3>
+                        <p>Patient</p>
+                    </div>
+                    </div>
+                        <p>{{i.detail}}
+                        </p>
+                        <br>
+                        <br>
+                        {% endfor %}
+                    </div>
+                    <!-- <div class="review">
+                        <div class="profile">
+                            <img src="{% static 'images/pat2.png' %}" alt="" srcset="">
+                        <div>
+                        <h3>Kistrine Vanson</h3>
+                        <p>Patient</p>
+                    </div>
+                    </div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, doloribus.
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus asperiores doloremque, ad iste sed fugit eius molestias rem eum voluptas.
+                        </p>
+                    </div>
+                    <div class="review">
+                        <div class="profile">
+                            <img src="{% static 'images/pqt4.png' %}" alt="" srcset="">
+                        <div>
+                        <h3>Alisha Perry</h3>
+                        <p>Patient</p>
+                    </div>
+                    </div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, doloribus.
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus asperiores doloremque, ad iste sed fugit eius molestias rem eum voluptas.
+                        </p>
+                    </div> -->
+                </div>
+                <div class="sidebar">
+                        
+                        <img src="{% static 'images/right.png' %}" id="right" alt="">
+                        <img src="{% static 'images/left.png' %}" id="left" alt="">
+                </div>
+                </div>
+        </section>
+        <section class="contact" style="background-color: rgb(249, 247, 247); "> 
+            <div class="contact-main">
+                <div class="contactmap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114311.47785844376!2d87.20176681417409!3d26.44819537857697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef744704331cc5%3A0x6d9a85e45c54b3fc!2sBiratnagar%2056613!5e0!3m2!1sen!2snp!4v1645155569844!5m2!1sen!2snp" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="contactForm">
+                    <h2>We love to hear from you!!</h2>
+                    <form action="" method="post">
+                        <input type="text"  name="name" class="contactTxt" placeholder="Enter your name">
+                        <input type="email"  name="email"class="contactTxt" placeholder="Enter your email">
+                        <input type="text"  name="phone" class="contactTxt" placeholder="Enter your phone">
+                        <textarea name="message" class="contactText" placeholder="Write your messages" id="" ></textarea>
+                       <div class="btnContainer" >
+                        <input type="submit"  name="submit" class="btn">
+                       </div>
+    
+                    </form>
+                </div>
+                
+            </div>
+            </section>
+        <!-- <section class="makeApp">
+            <div class="container min-vh-100">
+                <div class="row justify-content-center ">
+                    <h1 class="heading">Make an appointment</h1>
+                    <div class="col-md-10" data-aos="flip-up">
+                        <form action="">
+                            <div class="inputbox">
+                                <input type="text" placeholder="Enter Full name" required>
+                                <input type="email" placeholder="email@gmail.com" required>
+                            </div>
+                            <div class="inputbox ">
+                                <select name="" id="">
+                                    <option value="" disabled selected>Select Department</option>
+                                    <option value="cardio">Cardiology</option>
+                                    <option value="general">General Surgery</option>
+                                    <option value="ent">Ear, Nose and Throat</option>
+                                    <option value="radio">Radiology</option>
+                                    <option value="patho">Pathology</option>
+                                    <option value="diet">Dietary </option>
+                                    <option value="rehab">Rehabilitation </option>
+                                </select>
+                                <select name="" id="" >
+                                    <option value="" disabled selected>Select Time</option>
+                                    <option value="9-11">09-11 am</option>
+                                    <option value="11-1">11-01 pm</option>
+                                    <option value="1-3">01-03 pm</option>
+                                    <option value="3-5">03-06 pm</option>
+                                    <option value="night">Night Shift</option>
+
+                                </select>
+                            </div>
+                            <div class="inputbox">
+                                <input type="date" class="date" name="appointmentdate" value="2022-1-10">  
+                            </div>
+                            <textarea name="" id="" placeholder="Any query/complain (optional)" cols="30" rows="10"></textarea>
+                            <input type="submit" name="" id="" value="Make Appointment">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+      {% endblock %}
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <script>
+        AOS.init({
+            duration:1000,
+            delay:400
+        })
+    </script>
+</body>
+</html>

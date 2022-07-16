@@ -1,0 +1,158 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+{% block cart %}
+<body>
+     
+     
+    <section class="cart container" style="margin-top: 100px; text-align: center;">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td >Image</td>
+                    <td>Name</td>
+                    <td>Unit Price</td>
+                    <td>Quantity</td>
+                    <!-- <td>Total</td> -->
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for i in cart %}
+                <tr>
+                    <td>
+                    <img src="{{i.product.productImage.url }}" alt="">
+                    </td>
+                    <td>{{i.product.name}}</td>
+                    <td>  Rs. {{i.product.price}}</td>
+            
+                    <td>  
+                        <a class="minus-cart" pid="{{i.product.id}}"> <i class="fas fa-minus-square fa-sm " ></i></a>
+                         <!-- <input type="" value="{{i.quantity}}">   
+                         -->
+                         <span id="quantity">{{i.quantity}}</span>
+                         <a class="plus-cart" pid="{{i.product.id}}"> <i class="fas fa-plus-square fa-sm" ></i> </a> </td>
+                    <!-- <a href="" class="plus-cart" style="margin-top: 60%;"> <i class="fa fa-plus"></i></a> -->
+                    <!-- <td> <span id="total">Rs.{{total}}</span></td> -->
+                    <td>
+                        <button>
+                            
+                            <a href="" > <i class="fa fa-times-circle remove-cart" pid="{{i.product.id}}"></i> </a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </section>
+    <!-- <hr> -->
+    
+    <section class="cart-total container">
+       
+        <aside class="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter your Coupon">
+                <button class="normal">Apply</button>
+            </div>
+        </aside>
+       
+        <aside class="grandtotal"> 
+            <h3>Grant Total</h3>
+            <table>
+                <tr>
+                    <td>Sub Total</td>
+                    <td>Rs.<span id="subtotal">{{sub_total}}</span> </td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Rs.200</td>
+                </tr>
+                <tr>
+                    <td> <h6>Coupon Discount</h6> </td>
+                    <td><h6> <span> Rs.390</span></h6></td>
+                </tr>
+                <tr>
+                    <td> <strong>Grant Total</strong> </td>
+                    <td><strong>Rs.<strong id="granttotal">{{grant_total}}</strong> </strong></td>
+                </tr>
+            </table>
+            <a href="{% url 'clinicApp:checkout' %}">
+            <button class="btn btn-success">Proceed to Checkout</button></a>
+        </aside>
+
+
+      
+
+    </section>
+    {% endblock %}
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% block script %}
+   <script>
+      $('.plus-cart').click(function () {
+        var id = $(this).attr("pid").toString();
+        var childElement = this.parentNode.children[1]
+        // console.log(id)
+        $.ajax({
+            type: "GET",
+            url:"/pluscart",
+            data:{
+                prod_id : id
+            },
+            success:function(data){
+                childElement.innerText = data.quantity
+                document.getElementById("subtotal").innerText = data.sub_total
+                document.getElementById("granttotal").innerText = data.grant_total
+                document.getElementById("total").innerText = data.total
+            }
+            
+        })
+      })
+      $('.minus-cart').click(function (){
+        var id = $(this).attr("pid").toString();
+        var childElement = this.parentNode.children[1]
+        $.ajax({
+            type:"GET",
+            url:"/minuscart",
+            data:{
+                prod_id:id
+            },
+            success:function(data){
+                childElement.innerText = data.quantity
+                document.getElementById("subtotal").innerText = data.sub_total
+                document.getElementById("granttotal").innerText = data.grant_total
+            }
+        })
+      })
+      $('.remove-cart').click(function (){
+        var id = $(this).attr("pid").toString();
+        var childElement = this
+        console.log(id)
+        $.ajax({
+            type:"GET",
+            url:"/removecart",
+            data:{
+                prod_id:id
+            },
+            success:function(data){
+                childElement.parentNode.parentNode.parentNode.remove()
+                document.getElementById("subtotal").innerText = data.sub_total
+                document.getElementById("granttotal").innerText = data.grant_total
+                
+            }
+        })
+      })
+    </script>
+{% endblock %}
+</body>
+</html>

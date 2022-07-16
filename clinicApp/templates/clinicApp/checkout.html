@@ -1,0 +1,144 @@
+{% extends 'clinicApp/base.html' %}
+{% load static %}
+{% block checkout %}
+<body>
+
+     
+    <section class="" style="margin-top: 50px;">
+            <div class="progess ">
+                <h4 class="text-center">Checkout Process</h4>
+                <ul>
+                    <li>
+                        <img src="{% static 'images/cart1.png' %}" alt=""><br>
+                        <i class="fa fa-check-circle"></i>
+                        <p>Add to Cart</p>
+                    </li>
+                    <li>
+                        <img src="{% static 'images/payment.png' %}" alt=""><br>
+                        <i class="fa fa-check-circle"></i>
+                        <p>Make Payment</p>
+                    </li>
+                    <li>
+                        <img src="{% static 'images/delivery.png' %}" alt=""><br>
+                        <i class="fa fa-times-circle"></i>
+                        <p>We Deliver</p>
+                    </li>
+                </ul>
+            </div>
+
+    </section>
+    <section class="billingdetail">
+        <div class="row">
+            <div class="col-md-7 container billingdatail" style="border: 1px solid gray;padding: 20px;">
+                <h6>Customer Info</h6>
+               <div class="forminline">
+                <div class="form-group" style="width: 50%;">
+                    <input type="email" placeholder="Enter Your Email" >
+                </div>
+                <div class="form-group" style="width: 50%;">
+                    <input type="text" placeholder="Enter Your Contact Number" >
+                </div>
+               </div>
+                <h6>Delivery Info</h6>
+               <div class="forminline">
+                <div class="form-group" style="width: 50%;">
+                    <input type="text" placeholder="Enter Your First Name" >
+                </div>
+                <div class="form-group"  style="width: 50%;">
+                    <input type="text" placeholder="Enter Your Last Name" >
+                </div>
+               </div>
+               
+               <div class="forminline d-f">
+                <div class="formgroup" style="width: 49%; margin-top: 15px; padding: 0px 0 27px 0;" >
+                    <select name="provience" id="" class="ml-1" >
+                        <option value="select">--Select Your Provience--</option>
+                        <option value="prov1">Provience 1</option>
+                        <option value="prov2">Provience 2</option>
+                        <option value="prov3">Provience 3</option>
+                        <option value="prov4">Gandaki Pradesh</option>
+                        <option value="prov5">Provience 5</option>
+                        <option value="prov6">Karnali Pradesh</option>
+                        <option value="prov7">Sudurpashchim Pradesh</option>
+                    </select>
+                </div>
+                <div class="form-group"  style="width: 48%; ">
+                    <input type="text" placeholder="Enter Your City" >
+                </div>
+                <!-- <div class="formgroup" style="width: 49%; " >
+                    <select name="provience" id="" class="ml-1" >
+                        <option value="prov1">Provience 1</option>
+                        <option value="prov2">Provience 2</option>
+                        <option value="prov3">Provience 3</option>
+                        <option value="prov4">Gandaki Pradesh</option>
+                        <option value="prov5">Provience 5</option>
+                        <option value="prov6">Karnali Pradesh</option>
+                        <option value="prov7">Sudurpashchim Pradesh</option>
+                    </select>
+                </div> -->
+               </div>
+                <h6>Additional Information (Optional)</h6>
+                <div class="form-group">
+                    <textarea name="addinfo" id="" rows="5"></textarea>
+                </div>
+
+            </div>
+           
+            <div class="col-md-4 container sum" style="text-align: center;padding: 20px;margin-left: 50px;" >
+                <h4 class="">Order Summary</h4>
+                <div class="summary" > 
+                   
+                    <ul>
+                      
+                            
+                           
+                        
+                        <li>
+                            <img src="{% static 'images/med1.png' %}" alt="" width="40px">
+                            <span>med X 1 </span> 
+                            <span>250</span> 
+                           
+                        </li>
+                        <li>
+                            <span>250 X 1 </span> 
+                            <span>250</span>
+                        </li>
+                        <li>
+                            <span>Discount</span> 
+                            <span>25</span>
+                        </li>
+                        <li>
+                            <span>Sub Total</span> 
+                            <span>250</span>
+                        </li>
+                        <li>
+                            <span>Shipping Charge</span> 
+                            <span>Free</span>
+                        </li>
+                        <hr>
+                        <li>
+                            <span>Grant Total</span> 
+                            <span>250</span>
+                        </li>
+                    </ul>
+                   
+                   
+                  
+                </div>
+                <!-- <button class="btn btn-success btn-center">Back to cart</button> -->
+            </div>
+        </div>
+
+    </section>
+    {% endblock %}
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      
+    </script>
+</body>
+</html>

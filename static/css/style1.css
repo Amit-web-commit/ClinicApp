@@ -1,0 +1,148 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.class{
+	background: url(/static/images/bac.jpg);
+	background-repeat: no-repeat;
+	background-size: cover; 
+	background-size: 100% 100%;
+	height: 100vh;
+}
+@media (max-width:800px) {
+    .class{
+    	background: url(/static/images/bac1.webp);
+    	background-repeat: no-repeat;
+	background-size: cover; 
+	background-size: 100% 100%;
+	height: 100vh;
+    	
+    }
+    .class .form{
+    	position: absolute;
+    	left: 40%;
+    	/*top: 48%;*/
+	}
+
+}
+
+.form{
+	position: absolute;
+	top: 50%;
+	left: 70%;
+	transform: translate(-50%, -50%);
+	background: lightgrey;
+	border: 2px solid silver;
+	width: 400px;
+
+	box-shadow:
+		  2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+		  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+		  12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+		  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+		  41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+		  100px 100px 80px rgba(0, 0, 0, 0.07)
+			;
+}
+.form .headerlogin{
+	height: 50px;
+	line-height: 50px;
+	/*display: flex;*/
+}
+.form .headerlogin > div{
+	width: 100%;
+	float: left;
+	text-align: center;
+	background: lavender; 
+	cursor: pointer;
+	color: darkkhaki;
+	font-family: cursive;
+	font-size: 20px;
+}
+.form .headerlogin > div.active{
+	background: gray;
+	color: darkgray;
+}
+.form .loginblock{
+	padding: 20px;
+}
+.form .loginblock .loginbody .loginelement{
+	margin: 12px 0;
+}
+.form .loginblock .loginbody .loginelement input{
+	width: 100%;
+	padding: 5px;
+	font-family: sans-serif;
+	font-size: 15px;
+	border-radius: 10px;
+	outline: none;
+	border: 1px solid #eee;
+
+}
+.form .loginblock .loginbody .loginelement input[type="checkbox"]{
+	width: 33px;
+	margin: 5px 0;
+	margin-left: -4px;
+}
+.form .loginblock .loginbody .loginelement button{
+	width: 100%;
+	text-transform: uppercase;
+}
+.form .loginblock > div.active{
+	display: block;
+}
+.form .loginblock > div{
+	display: none;
+}
+
+.form .loginblock .loginbody .loginelement a {
+ text-decoration: none;
+ text-transform: uppercase;
+}
+.anotherwaybtn{
+    margin: 20px 0 20px 0;
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+}
+.linkother{
+    display: flex;
+    cursor:pointer;
+}
+.linkother .googlelink{
+    height: 35px;
+    width: 100%;
+    border: 1px solid silver;
+    border-radius: 5px;
+    cursor:pointer;
+   
+}
+.googlelink a{
+    text-decoration: none;
+}
+.googlelink i{
+    font-size: 20px;
+    line-height: 15px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    /* padding-left: 80px; */
+    /* margin-left: -30px; */
+}
+.googlelink span{
+    /* position: absolute; */
+    font-style: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+.googlelink  i, .googlelink  span{
+    color: #dd4b39;
+}
+
+.googlelink:hover{
+    border: 1px solid orangered;
+}
+
+
+
